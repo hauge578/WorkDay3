@@ -11,11 +11,24 @@ Public Class Form1
         Dim st1 As String = txtFirstNum.Text
         Dim st2 As String = txtSecondNum.Text
 
+        ' Checkpoint 1
+        If Not (IsNumeric(st1) And IsNumeric(st2)) Then
+            MessageBox.Show("Check 1: Please type the numbers")
+            Return
+        End If
+
+        ' Clean area
         num1 = CDbl(st1)
         num2 = CDbl(st2)
 
-        Dim result As String
+        ' Checkpoint 2
+        If Not (num1 >= 0 And num2 >= 0) Then
+            MessageBox.Show("Check 2: Please type non negative numbers")
+            Return
+        End If
 
+
+        Dim result As String
         If num1 > num2 Then
             result = "The larger number is " & num1
         ElseIf num2 > num1 Then
@@ -25,6 +38,11 @@ Public Class Form1
         End If
 
         txtResult.Text = result
+
+
     End Sub
 
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class
